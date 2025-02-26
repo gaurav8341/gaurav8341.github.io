@@ -1,26 +1,54 @@
-.navbar {
+.site-header {
     background-color: #333;
     padding: 1rem;
 }
 
-.navbar-menu {
-    list-style: none;
+.wrapper {
     display: flex;
-    justify-content: space-around;
-    margin: 0;
-    padding: 0;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.navbar-item {
-    margin: 0 1rem;
+.site-title {
+    font-size: 1.5rem;
+    color: #ff6347; /* Tomato red color */
+    text-decoration: none;
 }
 
-.navbar-link {
-    color: white;
+.site-title:visited {
+    color: #ff6347; /* Ensure the color remains the same after clicking */
+}
+
+.site-nav .trigger {
+    display: flex;
+    gap: 1rem;
+}
+
+.site-nav .trigger .page-link {
+    color: #ff6347; /* Match the color of site-title */
     text-decoration: none;
     font-size: 1.2rem;
 }
 
-.navbar-link:hover {
+.site-nav .trigger .page-link:hover {
     text-decoration: underline;
+}
+
+.site-nav .trigger .page-link:visited {
+    color: #ff6347; /* Ensure the color remains the same after clicking */
+}
+
+.site-nav .trigger .navbar-item {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.navbar-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-menu .site-title {
+    margin: 0;
 }
