@@ -26,7 +26,7 @@ const BlogList = () => {
 
     return (
         <CommonLayout>
-            <div className="blog-list">
+            {/* <div className="blog-list"> */}
                 <div className="content">
                     <h1 className='blog-title'>Learn With Me</h1>
                         <ul>
@@ -44,7 +44,7 @@ const BlogList = () => {
                             ))}
                         </ul>
                 </div>
-            </div>
+            {/* </div> */}
         </CommonLayout>
     );
 };

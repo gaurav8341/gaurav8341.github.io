@@ -6,7 +6,7 @@
     color: #333;
 }
 
-.blog-list h1 {
+.content h1 {
     text-align: center;
     margin-bottom: 20px;
     color: #ff6347;
@@ -17,7 +17,7 @@
     color: #f1f1f1; */
 /* } */
 
-.blog-list ul {
+.content ul {
     list-style-type: none;
     padding: 0;
 }
@@ -33,13 +33,13 @@
 }
 
 
-.blog-list p {
+.content p {
     line-height: 1.6;
     color: #ccc;
 }
 
 
-.blog-list li {
+.content li {
     margin-bottom: 20px;
     padding: 20px;
     border: 1px solid #ddd;
@@ -50,17 +50,17 @@
 
 }
 
-.blog-list li:hover {
+.content li:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.blog-list a {
+.content a {
     text-decoration: none;
     color: inherit;
 }
 
 
-.blog-title h2 {
+.content h2 {
     color: #ff6347; /* Match the color of site-title */
     text-decoration: none;
     /* font-size: 1.2rem; */
