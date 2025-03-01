@@ -57,14 +57,15 @@
 .content a {
     text-decoration: none;
     color: inherit;
+    color: #ff6347;
 }
 
-
+/* 
 .content h2 {
     color: #ff6347; /* Match the color of site-title */
-    text-decoration: none;
+    /* text-decoration: none; */
     /* font-size: 1.2rem; */
-}
+/* } */
 
 /* .blog-list h2 {
     margin: 0 0 10px;
