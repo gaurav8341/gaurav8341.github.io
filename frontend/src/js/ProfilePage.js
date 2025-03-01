@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import CommonLayout from './CommonLayout';
-// import '../css/ProfilePage.css';
+import '../css/ProfilePage.css';
 
 const ProfilePage = ({ fileUrl }) => {
   const [markdown, setMarkdown] = useState("");
