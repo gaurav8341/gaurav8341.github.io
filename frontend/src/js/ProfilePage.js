@@ -1,8 +1,7 @@
-import './ProfilePage.css';
-
 import React, { useState, useEffect, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import CommonLayout from './CommonLayout';
+import '../css/ProfilePage.css';
 
 const ProfilePage = ({ fileUrl }) => {
   const [markdown, setMarkdown] = useState("");
@@ -17,11 +16,11 @@ const ProfilePage = ({ fileUrl }) => {
 
   return (
     <CommonLayout>
-    <div className="profile-page">
-      <div ref={printRef} className="profile-info">
-        <ReactMarkdown>{markdown}</ReactMarkdown>
+      <div className="profile-page">
+        <div ref={printRef} className="profile-info">
+          <ReactMarkdown>{markdown}</ReactMarkdown>
+        </div>
       </div>
-    </div>
     </CommonLayout>
   );
 };
