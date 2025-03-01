@@ -2,33 +2,46 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import CommonLayout from './CommonLayout';
-import '../css/ProfilePage.css';
+import axios from 'axios';
+import '../css/BlogDetail.css';
 
-const BlogDetail = () => {
-    const { slug } = useParams();
+const BlogDetail = ({ blogPaths }) => {
+    const { id } = useParams();
     const [content, setContent] = useState(null);
 
     useEffect(() => {
         const fetchBlogContent = async () => {
             try {
-                const response = await fetch(`/blogs/${slug}.md`);
-                if (!response.ok) {
+                const blogPath = blogPaths[id];
+                console.log(blogPath);
+                if (!blogPath) {
                     throw new Error('Blog not found');
                 }
-                const text = await response.text();
-                setContent(text);
+                // const response = await fetch(blogPath);
+                // const 
+
+                axios.get(blogPath).then((response) => {
+                    setContent(response.data);
+                  });
+                // if (!response.ok) {
+                //     throw new Error('Failed to fetch blog content');
+                // }
+                // const text = await response.text();
+                // setContent(text);
             } catch (error) {
                 console.error(error);
                 setContent(null);
             }
         };
 
-        fetchBlogContent();
-    }, [slug]);
+        if (Object.keys(blogPaths).length > 0) {
+            fetchBlogContent();
+        }
+    }, [id, blogPaths]);
 
     return (
         <CommonLayout>
-            <div className="profile-page">
+            <div className="blog-detail">
                 <h1>Blog Detail</h1>
                 <div className="content">
                     {content ? (

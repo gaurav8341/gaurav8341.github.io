@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import CommonLayout from './CommonLayout';
 // import '../css/ProfilePage.css';
 import '../css/BlogList.css';
+// import BlogDetail from './BlogDetail';
 
 const BlogList = () => {
     const [blogs, setBlogs] = useState([]);
@@ -32,8 +33,8 @@ const BlogList = () => {
                         <ul>
                             {blogs.map((blog) => (
                                 // <div className="content">
-                                    <li key={blog.slug}>
-                                        <Link className='blog-title' to={blog.path}>
+                                    <li key={blog.path}>
+                                        <Link className='blog-title' to={`/blog/${blog.id}`}>
                                             <h2 >{blog.title}</h2>
                                         </Link>
                                             <p>{blog.preview}</p>
