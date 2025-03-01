@@ -1,14 +1,16 @@
 import React from 'react';
 import Header from './Header';
-// import Footer from './Footer';
+import '../css/base.css';
 
 const CommonLayout = ({ children }) => {
   return (
     <div>
-      <Header />
-      <main>{children}</main>
-      {/* <Footer /> */}
+        <Header />
+        <div className='base-layout'>
+            <main>{children}</main>
+        </div>
     </div>
+    
   );
 };
 

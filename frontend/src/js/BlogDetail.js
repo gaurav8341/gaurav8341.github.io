@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
-import CommonLayout from '../CommonLayout';
+import CommonLayout from './CommonLayout';
+import '../css/ProfilePage.css';
 
 const BlogDetail = () => {
     const { slug } = useParams();
@@ -27,13 +28,15 @@ const BlogDetail = () => {
 
     return (
         <CommonLayout>
-            <div>
+            <div className="profile-page">
                 <h1>Blog Detail</h1>
-                {content ? (
-                    <ReactMarkdown>{content}</ReactMarkdown>
-                ) : (
-                    <p>Loading...</p>
-                )}
+                <div className="content">
+                    {content ? (
+                        <ReactMarkdown>{content}</ReactMarkdown>
+                    ) : (
+                        <p>Loading...</p>
+                    )}
+                </div>
             </div>
         </CommonLayout>
     );

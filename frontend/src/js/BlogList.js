@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import CommonLayout from './CommonLayout';
-// import '../css/BlogList.css';
+import '../css/ProfilePage.css';
+import '../css/BlogList.css';
 
 const BlogList = () => {
     const [blogs, setBlogs] = useState([]);
@@ -26,19 +27,23 @@ const BlogList = () => {
     return (
         <CommonLayout>
             <div className="blog-list">
-                <h1>Blog List</h1>
-                <ul>
-                    {blogs.map((blog) => (
-                        <li key={blog.slug}>
-                            <Link to={`/blog/${blog.slug}`}>
-                                <h2>{blog.title}</h2>
-                                <p>{blog.preview}</p>
-                                <p><strong>Date:</strong> {blog.date}</p>
-                                <p><strong>Tags:</strong> {blog.tags.join(', ')}</p>
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
+                <div className="profile-info">
+                    <h1>Blog List</h1>
+                        <ul>
+                            {blogs.map((blog) => (
+                                // <div className="content">
+                                    <li key={blog.slug}>
+                                        <Link to={blog.path}>
+                                            <h2>{blog.title}</h2>
+                                        </Link>
+                                            <p>{blog.preview}</p>
+                                            <p><strong>Date:</strong> {blog.date}</p>
+                                            <p><strong>Tags:</strong> {blog.tags.join(', ')}</p>
+                                    </li>
+                                // </div>
+                            ))}
+                        </ul>
+                </div>
             </div>
         </CommonLayout>
     );
