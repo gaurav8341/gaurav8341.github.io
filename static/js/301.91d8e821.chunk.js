@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfrontend=self.webpackChunkfrontend||[]).push([[301],{2301:(e,n,r)=>{r.d(n,{createInfoServices:()=>s.v});var s=r(4628);r(6660)}}]);
