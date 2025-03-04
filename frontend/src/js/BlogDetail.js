@@ -17,17 +17,10 @@ const BlogDetail = ({ blogPaths }) => {
                 if (!blogPath) {
                     throw new Error('Blog not found');
                 }
-                // const response = await fetch(blogPath);
-                // const 
 
                 axios.get(blogPath).then((response) => {
                     setContent(response.data);
-                  });
-                // if (!response.ok) {
-                //     throw new Error('Failed to fetch blog content');
-                // }
-                // const text = await response.text();
-                // setContent(text);
+                });
             } catch (error) {
                 console.error(error);
                 setContent(null);
@@ -42,15 +35,12 @@ const BlogDetail = ({ blogPaths }) => {
     return (
         <CommonLayout>
             <div className="blog-detail">
-                <h1>Blog Detail</h1>
-                <div className="content">
                     {content ? (
                         <ReactMarkdown>{content}</ReactMarkdown>
                     ) : (
                         <p>Loading...</p>
                     )}
                 </div>
-            </div>
         </CommonLayout>
     );
 };
