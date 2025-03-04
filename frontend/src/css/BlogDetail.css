@@ -69,3 +69,23 @@
   font-family: monospace;
   border: 1px solid #444; /* Border around code elements */
 }
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+  .blog-detail {
+    padding: 1rem;
+  }
+
+  .blog-detail .content {
+    padding: 1rem;
+  }
+
+  .blog-detail h1 h2 h3 {
+    font-size: 0.9rem;
+  }
+
+  .blog-detail p,
+  .blog-detail code {
+    font-size: 1rem;
+  }
+}
