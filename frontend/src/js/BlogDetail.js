@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import CommonLayout from './CommonLayout';
 import axios from 'axios';
+import Mermaid from './Mermaid';
 import '../css/BlogDetail.css';
 
 const BlogDetail = ({ blogPaths }) => {
@@ -32,15 +33,30 @@ const BlogDetail = ({ blogPaths }) => {
         }
     }, [id, blogPaths]);
 
+    const components = {
+        code({ node, inline, className, children, ...props }) {
+            const match = /language-(\w+)/.exec(className || '');
+            return !inline && match && match[1] === 'mermaid' ? (
+                <Mermaid chart={String(children).replace(/\n$/, '')} />
+            ) : (
+                <pre>
+                    <code className={className} {...props}>
+                        {children}
+                    </code>
+                </pre>
+            );
+        }
+    };
+
     return (
         <CommonLayout>
             <div className="blog-detail">
                     {content ? (
-                        <ReactMarkdown>{content}</ReactMarkdown>
+                        <ReactMarkdown components={components}>{content}</ReactMarkdown>
                     ) : (
                         <p>Loading...</p>
                     )}
-                </div>
+            </div>
         </CommonLayout>
     );
 };

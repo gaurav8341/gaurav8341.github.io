@@ -30,7 +30,8 @@
 .blog-detail  h3,
 .blog-detail  h4,
 .blog-detail  h5,
-.blog-detail  h6, strong {
+.blog-detail  h6, 
+.blog-detail strong {
     /* text-align: center; */
     margin-bottom: 20px;
     margin-bottom: 10px;
@@ -55,4 +56,16 @@
 .blog-detail p {
   margin: 10px 0;
   line-height: 1.6;
+}
+
+.blog-detail code {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  overflow-x: auto;
+  background-color: #3e3e3e; /* Slightly different background color */
+  color: #f1f1f1;
+  border-radius: 5px;
+  font-family: monospace;
+  border: 1px solid #444; /* Border around code elements */
 }
