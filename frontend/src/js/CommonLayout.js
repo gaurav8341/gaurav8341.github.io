@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import '../css/base.css';
+import Footer from './Footer';
 
 const CommonLayout = ({ children }) => {
   return (
@@ -9,6 +10,7 @@ const CommonLayout = ({ children }) => {
         <div className='base-layout'>
             <main>{children}</main>
         </div>
+        <Footer />
     </div>
     
   );
