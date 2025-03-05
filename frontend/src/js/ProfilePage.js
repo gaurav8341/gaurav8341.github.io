@@ -1,24 +1,28 @@
 import React, { useState, useEffect, useRef } from "react";
-import ReactMarkdown from "react-markdown";
 import CommonLayout from './CommonLayout';
+import axios from 'axios';
 import '../css/ProfilePage.css';
 
-const ProfilePage = ({ fileUrl }) => {
-  const [markdown, setMarkdown] = useState("");
+const ProfilePage = ({ contentUrl }) => {
+  const [content, setContent] = useState("");
   const printRef = useRef();
 
   useEffect(() => {
-    fetch(fileUrl)
-      .then((response) => response.text())
-      .then((text) => setMarkdown(text))
-      .catch((error) => console.error("Error loading Markdown:", error));
-  }, [fileUrl]);
+    const fetchContent = async () => {
+      try {
+        const response = await axios.get(contentUrl);
+        setContent(response.data);
+      } catch (error) {
+        console.error("Error loading content:", error);
+      }
+    };
+
+    fetchContent();
+  }, [contentUrl]);
 
   return (
     <CommonLayout>
-        <div ref={printRef} className="profile-info">
-          <ReactMarkdown>{markdown}</ReactMarkdown>
-      </div>
+      <div ref={printRef} className="profile-info" dangerouslySetInnerHTML={{ __html: content }} />
     </CommonLayout>
   );
 };

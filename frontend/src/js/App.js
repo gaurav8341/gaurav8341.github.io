@@ -34,8 +34,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<ProfilePage fileUrl={"/content/about.md"} />} />
-        <Route path="/profile" element={<ProfilePage fileUrl={"/content/about.md"} />} />
+        <Route path="/" element={<ProfilePage contentUrl="https://raw.githubusercontent.com/gaurav8341/gaurav8341/refs/heads/master/index.html" />} />
+        <Route path="/profile" element={<ProfilePage contentUrl="https://raw.githubusercontent.com/gaurav8341/gaurav8341/refs/heads/master/index.html" />} />
         <Route path="/blogs" element={<BlogList />} />
         <Route path="/blog/:id" element={<BlogDetail blogPaths={blogPaths} />} />
         {/* <Route path="/projects" element={<ProfilePage fileUrl={"/content/projects.md"} />} /> */}
