@@ -74,7 +74,7 @@
 .mermaid svg {
   display: block;
   margin: 0 auto;
-  background-color: #ffffff; /* Set a background color that contrasts with the SVG details */
+  background-color: #ff6347; /* Set a background color that contrasts with the SVG details */
 }
 
 .mermaid rect {
