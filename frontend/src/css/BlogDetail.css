@@ -70,6 +70,21 @@
   border: 1px solid #444; /* Border around code elements */
 }
 
+/* Styles for Mermaid SVG elements */
+.mermaid svg {
+  display: block;
+  margin: 0 auto;
+  background-color: #ffffff; /* Set a background color that contrasts with the SVG details */
+}
+
+.mermaid rect {
+  fill: #2e2e2e; /* Set a background color that contrasts with the SVG details */
+}
+
+.mermaid .node text {
+  fill: #f1f1f1; /* Set text color for better visibility */
+}
+
 /* Media Queries for Mobile Devices */
 @media (max-width: 768px) {
   .blog-detail {
@@ -81,7 +96,7 @@
   }
 
   .blog-detail h1 h2 h3 {
-    font-size: 0.9rem;
+    font-size: 1.5rem;
   }
 
   .blog-detail p,
