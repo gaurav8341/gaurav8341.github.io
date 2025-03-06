@@ -110,12 +110,15 @@
     width: 100%;
     text-align: center;
     border: 1px solid #444; /* Add border to the navbar menu */
+    opacity: 0; /* Start with the navbar hidden */
+    transform: translateY(-20px); /* Start with the navbar slightly above */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Add transition for opacity and transform */
   }
 
   .site-nav.open {
     display: flex;
-    max-width: 100%; /* Ensure the navbar-menu takes up a maximum of 50% of the width */
-    margin-left: auto; /* Align the navbar-menu to the right */
+    opacity: 1; /* Make the navbar visible */
+    transform: translateY(0); /* Move the navbar to its original position */
   }
 
   .navbar-menu {
