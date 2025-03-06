@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './Home'; 
+import Project from './Project';
 import ProfilePage from './ProfilePage';
 import BlogList from './BlogList';
 import BlogDetail from './BlogDetail';
@@ -34,11 +36,12 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<ProfilePage contentUrl="https://raw.githubusercontent.com/gaurav8341/gaurav8341/refs/heads/master/index.html" />} />
+        <Route path="/" element={<Home/>} />
         <Route path="/profile" element={<ProfilePage contentUrl="https://raw.githubusercontent.com/gaurav8341/gaurav8341/refs/heads/master/index.html" />} />
         <Route path="/blogs" element={<BlogList />} />
+        {/* TODO: Use markdown name for parameter */}
         <Route path="/blog/:id" element={<BlogDetail blogPaths={blogPaths} />} />
-        {/* <Route path="/projects" element={<ProfilePage fileUrl={"/content/projects.md"} />} /> */}
+        <Route path="/projects" element={<Project />} />
       </Routes>
     </Router>
   );

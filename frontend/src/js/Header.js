@@ -1,33 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../css/Header.css';
 
 const Header = () => {
-    console.log('Header.js');
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
     return (
-        // <header>
-        //     <nav className="navbar">
-        //         <ul className="navbar-menu">
-        //             <li className="navbar-item"><Link to="/" className="navbar-link">Main Page</Link></li>
-        //             <li className="navbar-item"><Link to="/profile" className="navbar-link">About Me</Link></li>
-        //             <li className="navbar-item"><Link to="/blogs" className="navbar-link">Blog</Link></li>
-        //             <li className="navbar-item"><Link to="/projects" className="navbar-link">Project</Link></li>
-        //         </ul>
-        //     </nav>
-        // </header>
-        <header class="site-header" role="banner">
-            <div class="wrapper">
-                <ul className='navbar-menu'>
-                    <Link class="site-title" to="/">Gaurav Rajput</Link>
-                </ul>
-                <nav class="site-nav">
-                    <div class="trigger">
-                        <li className='navbar-item'><Link class="page-link" to="/profile">About</Link></li>
-                        <li className='navbar-item'><Link class="page-link" to="/blogs">Blog</Link></li>
-                        <li className='navbar-item'><Link class="page-link" to="/projects">Projects</Link></li>
-                        {/* <li className='navbar-item'><Link class="page-link" to="/contact">Contact</Link></li> */}
-                    </div>
-                </nav>
+        <header className="site-header" role="banner">
+            <div className="headwrapper">
+                <div className="title-container" id="title">
+                    <Link className="site-title" to="/">Gaurav Rajput</Link>
+                </div>
+                <div className="nav-container" id="nav">
+                    <nav className={`site-nav ${isMenuOpen ? 'open' : ''}`}>
+                        <ul className="navbar-menu">
+                            <li className="navbar-item"><Link className="page-link" to="/profile">About</Link></li>
+                            <li className="navbar-item"><Link className="page-link" to="/blogs">Blog</Link></li>
+                            <li className="navbar-item"><Link className="page-link" to="/projects">Projects</Link></li>
+                            {/* <li className="navbar-item"><Link className="page-link" to="/contact">Contact</Link></li> */}
+                        </ul>
+                    </nav>
+                    <button className="menu-toggle" onClick={toggleMenu}>
+                        <span className="hamburger"></span>
+                    </button>
+                </div>
             </div>
         </header>
     );

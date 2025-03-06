@@ -1,0 +1,136 @@
+.home {
+  padding: 2rem;
+  color: #f1f1f1;
+}
+
+.intro {
+  text-align: center;
+}
+
+.profile-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.navigation ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.navigation li {
+  margin: 0 1rem;
+}
+
+.featured-projects, .latest-blogs, .skills, .testimonials, .call-to-action {
+  margin-top: 2rem;
+}
+
+.projects, .blogs {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.project, .blog {
+  background-color: #2e2e2e;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 45%;
+  margin-bottom: 1rem; /* Add margin to separate items */
+}
+
+.view-all {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.view-all-link {
+  background-color: #1e90ff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.view-all-link:hover {
+  background-color: #1c86ee;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.skills-list span {
+  background-color: #444;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  margin: 0.5rem;
+}
+
+.testimonials blockquote {
+  background-color: #2e2e2e;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.call-to-action {
+  text-align: center;
+}
+
+.contact-link {
+  background-color: #1e90ff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  background-color: #1c86ee;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.social-link {
+  color: #f1f1f1;
+  text-decoration: none;
+  margin: 0 1rem;
+}
+
+.social-link svg {
+  fill: #f1f1f1;
+  width: 24px;
+  height: 24px;
+}
+
+.social-link:hover svg {
+  fill: #1e90ff;
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+  .projects, .blogs {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    align-items: center; /* Center items horizontally */
+  }
+
+  .project, .blog {
+    width: 90%; /* Make items take up most of the screen width */
+  }
+
+  .skills-list {
+    flex-direction: column; /* Stack skills vertically on smaller screens */
+    align-items: center; /* Center items horizontally */
+  }
+}

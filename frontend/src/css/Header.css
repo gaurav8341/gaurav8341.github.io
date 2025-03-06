@@ -1,54 +1,144 @@
 .site-header {
-    background-color: #333;
-    padding: 1rem;
+  background-color: #333;
+  padding: 1rem;
 }
 
-.wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.headwrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.title-container {
+  flex: 1;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align the nav and button to the right */
+  max-width: 50%; /* Ensure the nav-container takes up a maximum of 50% of the width */
 }
 
 .site-title {
-    font-size: 1.5rem;
-    color: #ff6347; /* Tomato red color */
-    text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f1f1f1;
+  text-decoration: none;
 }
 
 .site-title:visited {
-    color: #ff6347; /* Ensure the color remains the same after clicking */
+  color: #ff6347; /* Ensure the color remains the same after clicking */
 }
 
-.site-nav .trigger {
-    display: flex;
-    gap: 1rem;
-}
-
-.site-nav .trigger .page-link {
-    color: #ff6347; /* Match the color of site-title */
-    text-decoration: none;
-    font-size: 1.2rem;
-}
-
-.site-nav .trigger .page-link:hover {
-    text-decoration: underline;
-}
-
-.site-nav .trigger .page-link:visited {
-    color: #ff6347; /* Ensure the color remains the same after clicking */
-}
-
-.site-nav .trigger .navbar-item {
-    display: inline-block;
-    margin-right: 1rem;
+.site-nav {
+  display: flex;
+  width: 100%; /* Ensure the site-nav takes up the full width of the nav-container */
 }
 
 .navbar-menu {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: flex-end; /* Align the navbar items to the right */
+  width: 100%; /* Ensure the navbar-menu takes up the full width of the site-nav */
 }
 
-.navbar-menu .site-title {
-    margin: 0;
+.navbar-item {
+  margin-left: 1rem;
+}
+
+.page-link {
+  color: #f1f1f1;
+  text-decoration: none;
+}
+
+.page-link:hover {
+  text-decoration: underline;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 1rem; /* Add some space between the nav and the button */
+}
+
+.hamburger {
+  width: 25px;
+  height: 3px;
+  background-color: #f1f1f1;
+  display: block;
+  position: relative;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  width: 25px;
+  height: 3px;
+  background-color: #f1f1f1;
+  display: block;
+  position: absolute;
+  left: 0;
+}
+
+.hamburger::before {
+  top: -8px;
+}
+
+.hamburger::after {
+  top: 8px;
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+  .headwrapper {
+    flex-direction: row; /* Ensure the title and button are in a row */
+  }
+
+  .site-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #333; /* Match the background color of the site header */
+    width: 100%;
+    text-align: center;
+    border: 1px solid #444; /* Add border to the navbar menu */
+  }
+
+  .site-nav.open {
+    display: flex;
+    max-width: 100%; /* Ensure the navbar-menu takes up a maximum of 50% of the width */
+    margin-left: auto; /* Align the navbar-menu to the right */
+  }
+
+  .navbar-menu {
+    flex-direction: column;
+    max-width: 100%; /* Ensure the navbar-menu takes up a maximum of 50% of the width */
+    margin-left: auto; /* Align the navbar-menu to the right */
+  }
+
+  .navbar-item {
+    margin: 1rem 0;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .site-nav {
+    display: flex;
+  }
 }
