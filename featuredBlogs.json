@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Blog Post Title 1",
+    "excerpt": "Excerpt from the blog post.",
+    "url": "/blogs/blog1"
+  },
+  {
+    "title": "Blog Post Title 2",
+    "excerpt": "Excerpt from the blog post.",
+    "url": "/blogs/blog2"
+  }
+]
