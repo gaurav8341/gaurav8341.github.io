@@ -2,5 +2,6 @@
     "blogsJsonPath": "https://raw.githubusercontent.com/gaurav8341/LearnWithMe/refs/heads/main/blogs.json",
     "featuredBlogsPath": "https://raw.githubusercontent.com/gaurav8341/gaurav8341/refs/heads/master/featuredBlogs.json",
     "profilePageUrl": "https://raw.githubusercontent.com/gaurav8341/gaurav8341/refs/heads/master/index.html",
-    "featuredProjectsPath": "https://raw.githubusercontent.com/gaurav8341/gaurav8341/refs/heads/master/featuredProjects.json"
+    "featuredProjectsPath": "https://raw.githubusercontent.com/gaurav8341/gaurav8341/refs/heads/master/featuredProjects.json",
+    "skillsJsonPath": "https://raw.githubusercontent.com/gaurav8341/gaurav8341/refs/heads/master/skills.json"
 }

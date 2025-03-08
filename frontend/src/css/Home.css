@@ -49,15 +49,16 @@
 }
 
 .view-all-link {
-  background-color: #1e90ff;
+  background-color: #2e2e2e; /* Match the background color of the project and blog elements */
   color: #fff;
   padding: 0.5rem 1rem;
   border-radius: 5px;
   text-decoration: none;
+  display: inline-block; /* Ensure the link is displayed as a block element */
 }
 
 .view-all-link:hover {
-  background-color: #1c86ee;
+  background-color: #444; /* Slightly darker background color on hover */
 }
 
 .skills-list {
@@ -66,11 +67,64 @@
   justify-content: center;
 }
 
-.skills-list span {
+.skill {
   background-color: #444;
   padding: 0.5rem 1rem;
   border-radius: 5px;
   margin: 0.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.skill-logo {
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
+}
+
+.skill-name {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.skill-type {
+  display: inline-block;
+  background-color: #555;
+  color: #fff;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.experience {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.star {
+  color: gold;
+  margin: 0 2px;
+}
+
+.description {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 5px;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.skill:hover .description {
+  display: block;
 }
 
 .testimonials blockquote {

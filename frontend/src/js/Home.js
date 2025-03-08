@@ -9,20 +9,23 @@ import ProjectModal from './ProjectModal';
 const Home = () => {
   const [projects, setProjects] = useState([]);
   const [blogs, setBlogs] = useState([]);
+  const [skills, setSkills] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
 
   useEffect(() => {
     const fetchProjectsAndBlogs = async () => {
       try {
         const urls = await fetchUrls();
-        const [projectsResponse, blogsResponse] = await Promise.all([
+        const [projectsResponse, blogsResponse, skillsResponse] = await Promise.all([
           axios.get(urls.featuredProjectsPath),
-          axios.get(urls.featuredBlogsPath)
+          axios.get(urls.featuredBlogsPath),
+          axios.get(urls.skillsJsonPath)
         ]);
         setProjects(projectsResponse.data);
         setBlogs(blogsResponse.data);
+        setSkills(skillsResponse.data);
       } catch (error) {
-        console.error("Error loading projects or blogs:", error);
+        console.error("Error loading projects, blogs, or skills:", error);
       }
     };
 
@@ -94,12 +97,22 @@ const Home = () => {
         <section className="skills">
           <h2>Skills & Technologies</h2>
           <div className="skills-list">
-            <span>JavaScript</span>
-            <span>React</span>
-            <span>Node.js</span>
-            <span>Python</span>
-            <span>HTML & CSS</span>
-            {/* Add more skills as needed */}
+            {skills.map((skill, index) => (
+              <div key={index} className="skill">
+                <img src={skill.logo} alt={`${skill.name}`} className="skill-logo" /> 
+                {/* <span>{skill.name}</span> */}
+                <span className={`skill-type ${skill.type.toLowerCase()}`}>{skill.type}</span>
+                <div className="experience">
+                  {Array.from({ length: skill.experience }).map((_, i) => (
+                    <span key={i} className="star">&#9733;</span>
+                  ))}
+                  {Array.from({ length: 5 - skill.experience }).map((_, i) => (
+                    <span key={i} className="star">&#9734;</span>
+                  ))}
+                </div>
+                <div className="description">{skill.description}</div>
+              </div>
+            ))}
           </div>
         </section>
 
