@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+// import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../css/Project.css';
 import CommonLayout from './CommonLayout';
-import ProjectModal from './ProjectModal';
 import { fetchUrls } from './utils';
+import ProjectModal from './ProjectModal';
 
 const Project = () => {
   const [projects, setProjects] = useState([]);
@@ -29,8 +30,8 @@ const Project = () => {
 
   return (
     <CommonLayout>
-      <div className="project-page">
-        <h1>Projects</h1>
+      <div className="project-container">
+        <h1 className="section-title">Projects</h1>
         <div className="project-list">
           {projects.map((project) => (
             <div key={project.id} className="project-item" onClick={() => openProject(project)}>

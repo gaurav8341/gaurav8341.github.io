@@ -44,7 +44,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<ProfilePage contentUrl={urls.profilePageUrl} />} />
         <Route path="/blogs" element={<BlogList />} />
-        <Route path="/blog/:id" element={<BlogDetail blogPaths={blogPaths} />} />
+        <Route path="/blogs/:id" element={<BlogDetail blogPaths={blogPaths} />} />
         <Route path="/projects" element={<Project />} />
       </Routes>
     </Router>

@@ -5,7 +5,7 @@ import Footer from './Footer';
 
 const CommonLayout = ({ children }) => {
   return (
-    <div>
+    <div className='base-container'>
         <Header />
         <div className='base-layout'>
             <main>{children}</main>

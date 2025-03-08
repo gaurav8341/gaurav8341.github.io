@@ -1,6 +1,14 @@
 .home {
   padding: 2rem;
-  color: #f1f1f1;
+}
+
+.section-title {
+  text-align: center;
+  color: #ff6347;
+}
+
+.work-title {
+  color: #ff6347;
 }
 
 .intro {
@@ -25,14 +33,14 @@
   margin: 0 1rem;
 }
 
-.featured-projects, .latest-blogs, .skills, .testimonials, .call-to-action {
+.featured-projects, .latest-blogs, .skills, .call-to-action {
   margin-top: 2rem;
 }
 
 .projects, .blogs {
   display: flex;
   justify-content: space-around;
-  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  flex-wrap: wrap;
 }
 
 .project, .blog {
@@ -40,7 +48,15 @@
   padding: 1rem;
   border-radius: 8px;
   width: 45%;
-  margin-bottom: 1rem; /* Add margin to separate items */
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer; /* Add cursor pointer to indicate clickability */
+  transition: transform 0.2s, box-shadow 0.2s; /* Add transition for smooth hover effect */
+}
+
+.project:hover, .blog:hover, .skill:hover, .view-all-link:hover {
+  transform: scale(1.05); /* Slightly enlarge the project on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a deeper shadow on hover */
 }
 
 .view-all {
@@ -49,16 +65,24 @@
 }
 
 .view-all-link {
-  background-color: #2e2e2e; /* Match the background color of the project and blog elements */
+  background-color: #444;
   color: #fff;
   padding: 0.5rem 1rem;
   border-radius: 5px;
   text-decoration: none;
-  display: inline-block; /* Ensure the link is displayed as a block element */
 }
 
 .view-all-link:hover {
-  background-color: #444; /* Slightly darker background color on hover */
+  background-color: #444;
+  text-decoration: wavy;
+  transform: scale(1.05); /* Slightly enlarge the project on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.view-all:hover {
+  text-decoration: wavy;
+  transform: scale(1.05); /* Slightly enlarge the project on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .skills-list {
@@ -74,6 +98,7 @@
   margin: 0.5rem;
   text-align: center;
   position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .skill-logo {
@@ -127,13 +152,6 @@
   display: block;
 }
 
-.testimonials blockquote {
-  background-color: #2e2e2e;
-  padding: 1rem;
-  border-radius: 8px;
-  margin: 1rem 0;
-}
-
 .call-to-action {
   text-align: center;
 }
@@ -175,16 +193,16 @@
 /* Media Queries for Mobile Devices */
 @media (max-width: 768px) {
   .projects, .blogs {
-    flex-direction: column; /* Stack items vertically on smaller screens */
-    align-items: center; /* Center items horizontally */
+    flex-direction: column;
+    align-items: center;
   }
 
   .project, .blog {
-    width: 90%; /* Make items take up most of the screen width */
+    width: 90%;
   }
 
   .skills-list {
-    flex-direction: column; /* Stack skills vertically on smaller screens */
-    align-items: center; /* Center items horizontally */
+    flex-direction: column;
+    align-items: center;
   }
 }

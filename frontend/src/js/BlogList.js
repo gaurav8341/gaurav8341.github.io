@@ -19,29 +19,25 @@ const BlogList = () => {
     loadBlogs();
   }, []);
 
-    return (
-        <CommonLayout>
-            {/* <div className="blog-list"> */}
-                <div className="content">
-                    <h1 className='blog-title'>Learn With Me</h1>
-                        <ul>
-                            {blogs.map((blog) => (
-                                // <div className="content">
-                                    <li key={blog.path}>
-                                        <Link className='blog-title' to={`/blog/${blog.id}`}>
-                                            <h2 >{blog.title}</h2>
-                                        </Link>
-                                            <p>{blog.preview}</p>
-                                            <p><strong>Date:</strong> {blog.date}</p>
-                                            <p><strong>Tags:</strong> {blog.tags.join(', ')}</p>
-                                    </li>
-                                // </div>
-                            ))}
-                        </ul>
-                </div>
-            {/* </div> */}
-        </CommonLayout>
-    );
+  return (
+    <CommonLayout>
+      <div className="content">
+        <h1 className="blog-title">Learn With Me</h1>
+        <ul>
+          {blogs.map((blog) => (
+            <li key={blog.path} className="blog-item">
+              <Link className="blog-title" to={`/blogs/${blog.id}`}>
+                <h2>{blog.title}</h2>
+              </Link>
+              <p>{blog.preview}</p>
+              <p><strong>Date:</strong> {blog.date}</p>
+              <p><strong>Tags:</strong> {blog.tags.join(', ')}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </CommonLayout>
+  );
 };
 
 export default BlogList;

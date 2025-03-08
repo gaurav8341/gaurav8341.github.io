@@ -44,28 +44,26 @@ const Home = () => {
     <CommonLayout>
       <div className="home">
         <section className="intro">
-          {/* <img src="/path/to/your/photo.jpg" alt="Gaurav Rajput" className="profile-photo" /> */}
-          <h1>Gaurav Rajput</h1>
+          <h1 className="section-title">Gaurav Rajput</h1>
           <p>Software Developer | Tech Enthusiast | Blogger</p>
         </section>
-
+        
         <section className="navigation">
           <nav>
             <ul>
               <li><Link to="/profile">Profile</Link></li>
               <li><Link to="/blogs">Blog</Link></li>
               <li><Link to="/projects">Projects</Link></li>
-              {/* <li><Link to="/contact">Contact</Link></li> */}
             </ul>
           </nav>
         </section>
 
         <section className="featured-projects">
-          <h2>Featured Projects</h2>
+          <h2 className="section-title">Featured Projects</h2>
           <div className="projects">
             {projects.map((project, index) => (
               <div key={index} className="project" onClick={() => openProject(project)}>
-                <h3>{project.title}</h3>
+                <h3 className='work-title'>{project.title}</h3>
                 <p>{project.description}</p>
               </div>
             ))}
@@ -80,12 +78,13 @@ const Home = () => {
         )}
 
         <section className="latest-blogs">
-          <h2>Featured Blog Posts</h2>
+          <h2 className="section-title">Featured Blog Posts</h2>
           <div className="blogs">
             {blogs.map((blog, index) => (
               <div key={index} className="blog">
-                <h3>{blog.title}</h3>
+                <h3 className='work-title'>{blog.title}</h3>
                 <p>{blog.excerpt}</p>
+                <a href={`/blogs/${blog.id}`} className="read-more">Read More</a>
               </div>
             ))}
           </div>
@@ -95,12 +94,11 @@ const Home = () => {
         </section>
 
         <section className="skills">
-          <h2>Skills & Technologies</h2>
+          <h2 className="section-title">Skills & Technologies</h2>
           <div className="skills-list">
             {skills.map((skill, index) => (
               <div key={index} className="skill">
-                <img src={skill.logo} alt={`${skill.name}`} className="skill-logo" /> 
-                {/* <span>{skill.name}</span> */}
+                <img src={skill.logo} alt={`${skill.name}`} className="skill-logo" />
                 <span className={`skill-type ${skill.type.toLowerCase()}`}>{skill.type}</span>
                 <div className="experience">
                   {Array.from({ length: skill.experience }).map((_, i) => (
@@ -117,7 +115,7 @@ const Home = () => {
         </section>
 
         <section className="call-to-action">
-          <h2>Get in Touch</h2>
+          <h2 className="section-title">Get in Touch</h2>
           <p>If you'd like to work together or just want to say hi, feel free to reach out!</p>
           <div className="social-media">
             <a href="https://github.com/gaurav8341" className="social-link" target="_blank" rel="noopener noreferrer">

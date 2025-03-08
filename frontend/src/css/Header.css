@@ -42,6 +42,8 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  color: #ff6347;
+  font-weight: bold;
   justify-content: flex-end; /* Align the navbar items to the right */
   width: 100%; /* Ensure the navbar-menu takes up the full width of the site-nav */
 }
@@ -51,7 +53,7 @@
 }
 
 .page-link {
-  color: #f1f1f1;
+  color: #ff6347;
   text-decoration: none;
 }
 

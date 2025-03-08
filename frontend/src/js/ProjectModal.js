@@ -7,7 +7,7 @@ const ProjectModal = ({ project, onClose }) => {
       <div className="project-modal-content">
         <span className="close-button" onClick={onClose}>&times;</span>
         <div className="modal-header">
-          <h2>{project.title}</h2>
+          <h2 className="title">{project.title}</h2>
           {project.srcurl && (
             <a href={project.srcurl} target="_blank" rel="noopener noreferrer" className="github-link">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -17,9 +17,6 @@ const ProjectModal = ({ project, onClose }) => {
           )}
         </div>
         <p>{project.description}</p>
-        {project.produrl && (
-          <a href={project.produrl} target="_blank" rel="noopener noreferrer">Visit Live Site</a>
-        )}
         <div className="project-skills">
           {/* <h3>Skills Used</h3> */}
           <div className="skills-list">
@@ -30,6 +27,11 @@ const ProjectModal = ({ project, onClose }) => {
               </div>
             ))}
           </div>
+        </div>
+        <div className="live-url">
+            {project.produrl && (
+            <a href={project.produrl} className="live-url-link" target="_blank" rel="noopener noreferrer">Visit Live Site</a>
+            )}
         </div>
       </div>
     </div>
