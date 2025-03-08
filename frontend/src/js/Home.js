@@ -4,10 +4,12 @@ import CommonLayout from './CommonLayout';
 import axios from 'axios';
 import '../css/Home.css';
 import { fetchUrls } from './utils';
+import ProjectModal from './ProjectModal';
 
 const Home = () => {
   const [projects, setProjects] = useState([]);
   const [blogs, setBlogs] = useState([]);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   useEffect(() => {
     const fetchProjectsAndBlogs = async () => {
@@ -26,6 +28,14 @@ const Home = () => {
 
     fetchProjectsAndBlogs();
   }, []);
+
+  const openProject = (project) => {
+    setSelectedProject(project);
+  };
+
+  const closeProject = () => {
+    setSelectedProject(null);
+  };
 
   return (
     <CommonLayout>
@@ -51,7 +61,7 @@ const Home = () => {
           <h2>Featured Projects</h2>
           <div className="projects">
             {projects.map((project, index) => (
-              <div key={index} className="project">
+              <div key={index} className="project" onClick={() => openProject(project)}>
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
                 <Link to={project.url}>Read more</Link>
@@ -62,6 +72,10 @@ const Home = () => {
             <Link to="/projects" className="view-all-link">View All Projects</Link>
           </div>
         </section>
+
+        {selectedProject && (
+          <ProjectModal project={selectedProject} onClose={closeProject} />
+        )}
 
         <section className="latest-blogs">
           <h2>Featured Blog Posts</h2>
