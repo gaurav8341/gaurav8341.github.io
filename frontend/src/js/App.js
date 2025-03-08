@@ -11,6 +11,7 @@ import axios from 'axios';
 
 function App() {
   const [blogPaths, setBlogPaths] = useState({});
+  // const [content, setContent] = useState(null);
   const [urls, setUrls] = useState({});
 
   useEffect(() => {
@@ -18,11 +19,11 @@ function App() {
       try {
         const urls = await fetchUrls();
         setUrls(urls);
-        const response = await axios.get(urls.blogsJsonPath);
-        if (!response.ok) {
+        const response = await axios.get(urls.blogsJsonPath)
+        if (!response.status === 200) {
           throw new Error('Failed to fetch blogs');
         }
-        const blogs = await response.json();
+        const blogs = response.data;
         const paths = blogs.reduce((acc, blog) => {
           acc[blog.id] = blog.path;
           return acc;
@@ -36,7 +37,6 @@ function App() {
     fetchBlogs();
   }, []);
 
-  console.log("blogPaths", blogPaths);
 
   return (
     <Router>

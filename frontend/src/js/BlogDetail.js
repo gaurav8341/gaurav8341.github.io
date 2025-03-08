@@ -9,12 +9,11 @@ import '../css/BlogDetail.css';
 const BlogDetail = ({ blogPaths }) => {
     const { id } = useParams();
     const [content, setContent] = useState(null);
-
+    console.log("blogPaths dict",blogPaths);
     useEffect(() => {
         const fetchBlogContent = async () => {
             try {
                 const blogPath = blogPaths[id];
-                console.log(blogPath);
                 if (!blogPath) {
                     throw new Error('Blog not found');
                 }

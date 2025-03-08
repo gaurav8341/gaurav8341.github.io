@@ -64,7 +64,6 @@ const Home = () => {
               <div key={index} className="project" onClick={() => openProject(project)}>
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
-                <Link to={project.url}>Read more</Link>
               </div>
             ))}
           </div>
@@ -84,7 +83,6 @@ const Home = () => {
               <div key={index} className="blog">
                 <h3>{blog.title}</h3>
                 <p>{blog.excerpt}</p>
-                <Link to={blog.url}>Read more</Link>
               </div>
             ))}
           </div>
