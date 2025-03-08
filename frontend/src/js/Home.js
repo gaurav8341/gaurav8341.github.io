@@ -3,32 +3,28 @@ import { Link } from 'react-router-dom';
 import CommonLayout from './CommonLayout';
 import axios from 'axios';
 import '../css/Home.css';
+import { fetchUrls } from './utils';
 
 const Home = () => {
   const [projects, setProjects] = useState([]);
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    const fetchProjects = async () => {
+    const fetchProjectsAndBlogs = async () => {
       try {
-        const response = await axios.get('/featuredProjects.json');
-        setProjects(response.data);
+        const urls = await fetchUrls();
+        const [projectsResponse, blogsResponse] = await Promise.all([
+          axios.get(urls.featuredProjectsPath),
+          axios.get(urls.featuredBlogsPath)
+        ]);
+        setProjects(projectsResponse.data);
+        setBlogs(blogsResponse.data);
       } catch (error) {
-        console.error("Error loading projects:", error);
+        console.error("Error loading projects or blogs:", error);
       }
     };
 
-    const fetchBlogs = async () => {
-      try {
-        const response = await axios.get('/featuredBlogs.json');
-        setBlogs(response.data);
-      } catch (error) {
-        console.error("Error loading blogs:", error);
-      }
-    };
-
-    fetchProjects();
-    fetchBlogs();
+    fetchProjectsAndBlogs();
   }, []);
 
   return (

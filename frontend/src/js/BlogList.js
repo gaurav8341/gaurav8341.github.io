@@ -1,29 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import CommonLayout from './CommonLayout';
-// import '../css/ProfilePage.css';
+import axios from 'axios';
 import '../css/BlogList.css';
-// import BlogDetail from './BlogDetail';
+import CommonLayout from './CommonLayout';
+import { fetchUrls } from './utils';
 
 const BlogList = () => {
-    const [blogs, setBlogs] = useState([]);
+  const [blogs, setBlogs] = useState([]);
 
-    useEffect(() => {
-        const fetchBlogs = async () => {
-            try {
-                const response = await fetch('/blogs.json');
-                if (!response.ok) {
-                    throw new Error('Failed to fetch blogs');
-                }
-                const data = await response.json();
-                setBlogs(data);
-            } catch (error) {
-                console.error('Error fetching blogs:', error);
-            }
-        };
+  useEffect(() => {
+    const loadBlogs = async () => {
+      const urls = await fetchUrls();
+      console.log(urls.blogsJsonPath);
+      const response = await axios.get(urls.blogsJsonPath);
+      setBlogs(response.data);
+    };
 
-        fetchBlogs();
-    }, []);
+    loadBlogs();
+  }, []);
 
     return (
         <CommonLayout>

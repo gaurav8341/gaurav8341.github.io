@@ -6,14 +6,19 @@ import ProfilePage from './ProfilePage';
 import BlogList from './BlogList';
 import BlogDetail from './BlogDetail';
 import '../css/App.css';
+import { fetchUrls } from './utils';
+import axios from 'axios';
 
 function App() {
   const [blogPaths, setBlogPaths] = useState({});
+  const [urls, setUrls] = useState({});
 
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await fetch('/blogs.json');
+        const urls = await fetchUrls();
+        setUrls(urls);
+        const response = await axios.get(urls.blogsJsonPath);
         if (!response.ok) {
           throw new Error('Failed to fetch blogs');
         }
@@ -36,10 +41,9 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/profile" element={<ProfilePage contentUrl="https://raw.githubusercontent.com/gaurav8341/gaurav8341/refs/heads/master/index.html" />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<ProfilePage contentUrl={urls.profilePageUrl} />} />
         <Route path="/blogs" element={<BlogList />} />
-        {/* TODO: Use markdown name for parameter */}
         <Route path="/blog/:id" element={<BlogDetail blogPaths={blogPaths} />} />
         <Route path="/projects" element={<Project />} />
       </Routes>
