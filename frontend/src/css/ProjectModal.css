@@ -4,14 +4,15 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 
 .project-modal-content {
-  background-color: #333;
+  background-color: #fff;
   padding: 2rem;
   border-radius: 8px;
   width: 80%;
@@ -23,12 +24,43 @@
   position: absolute;
   top: 1rem;
   right: 1rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 
-.github-logo {
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.github-link svg {
   width: 24px;
   height: 24px;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
+}
+
+.project-skills {
+  margin-top: 1rem;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.skill {
+  background-color: #444;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  margin: 0.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.skill-logo {
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
 }
