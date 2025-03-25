@@ -1,2 +1,6 @@
 frontend/package-lock.json
 website.code-workspace
+**/node_modules/*
+**/node_modules
+
+**/build
