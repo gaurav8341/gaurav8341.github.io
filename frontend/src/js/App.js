@@ -8,8 +8,8 @@ import BlogDetail from './BlogDetail';
 import '../css/App.css';
 import { fetchUrls } from './utils';
 import axios from 'axios';
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/react"
+// import { Analytics } from "@vercel/analytics/react"
+// import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function App() {
   const [blogPaths, setBlogPaths] = useState({});
@@ -41,19 +41,15 @@ function App() {
 
 
   return (
-    <SpeedInsights>
-      <Analytics>
-        <Router>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/profile" element={<ProfilePage contentUrl={urls.profilePageUrl} />} />
-            <Route path="/blogs" element={<BlogList />} />
-            <Route path="/blogs/:id" element={<BlogDetail blogPaths={blogPaths} />} />
-            <Route path="/projects" element={<Project />} />
-          </Routes>
-        </Router>
-      </Analytics>
-    </SpeedInsights>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<ProfilePage contentUrl={urls.profilePageUrl} />} />
+        <Route path="/blogs" element={<BlogList />} />
+        <Route path="/blogs/:id" element={<BlogDetail blogPaths={blogPaths} />} />
+        <Route path="/projects" element={<Project />} />
+      </Routes>
+    </Router>
   );
 }
 
